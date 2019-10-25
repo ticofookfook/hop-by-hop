@@ -31,7 +31,8 @@ try:
     req1 = requests.get(args.url, params=params1, allow_redirects=False)
     req2 = requests.get(args.url, headers=headers, params=params2, allow_redirects=False)
 except requests.exceptions.ConnectionError as e:
-    pass
+    print e
+    exit(1)
 
 # if HbH headers cause a different response code, try and see if we poisoned cache
 if req1.status_code != req2.status_code:
@@ -39,7 +40,8 @@ if req1.status_code != req2.status_code:
     try:
         req3 = requests.get(args.url, params=params2, allow_redirects=False)
     except requests.exceptions.ConnectionError as e:
-        pass
+        print e
+        exit(1)
     if req3.status_code == req2.status_code:
         print '%s?cb=%s poisoned?' % (args.url, params2['cb'])
     else:
