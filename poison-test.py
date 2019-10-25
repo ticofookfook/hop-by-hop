@@ -42,5 +42,7 @@ if req1.status_code != req2.status_code:
         pass
     if req3.status_code == req2.status_code:
         print '%s?cb=%s poisoned?' % (args.url, params2['cb'])
+    else:
+        print 'No poisoning detected'
 else:
     print '%s did NOT return a different status code with the hop-by-hop headers "%s"' % (args.url, args.headers)
