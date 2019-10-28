@@ -4,7 +4,7 @@ import string
 from argparse import ArgumentParser
 
 
-parser = ArgumentParser(description="Attempts to find hop-by-hop header against the provided URL.")
+parser = ArgumentParser(description="Attempts to find hop-by-hop header abuse potential against the provided URL.")
 parser.add_argument("-u", "--url", help="URL to target (without query string)")
 parser.add_argument("-x", "--headers", default="X-Forwarded-For", help="A comma separated list of headers to add as hop-by-hop")
 parser.add_argument("-c", "--cache-test", action="store_true", help="Test for cache poisoning")
