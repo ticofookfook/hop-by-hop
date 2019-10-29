@@ -1,3 +1,5 @@
+# github.com/ndavison
+
 import requests
 import random
 import string
@@ -20,7 +22,7 @@ if not args.url:
 letters = string.ascii_lowercase
 
 headers = {
-    'Connection': 'close, %s' % args.headers
+    'Connection': 'keep-alive, %s' % args.headers
 }
 params1 = {
     'cb': ''.join(random.choice(letters) for i in range(10))
